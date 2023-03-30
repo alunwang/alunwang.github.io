@@ -1,0 +1,11 @@
+.dist
+.vscode
+
+
+C++20/build
+CMAKE/build
+DataStructure/build
+HackerRank/build
+HackerRank/byte2Json/build
+ModernC++/build
+ProfessionalC++/build

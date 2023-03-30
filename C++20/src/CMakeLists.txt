@@ -1,0 +1,2 @@
+ADD_SUBDIRECTORY(bits)
+ADD_SUBDIRECTORY(moveableClass)
