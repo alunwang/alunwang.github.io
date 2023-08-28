@@ -1,0 +1,2 @@
+
+(gdb) info proc mappings
