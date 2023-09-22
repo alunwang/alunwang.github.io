@@ -6,6 +6,7 @@
 #include <iterator>
 #include <numeric>
 #include <iomanip>
+#include <cmath>
 
 /*
  * Provides an object pool that can be used with any class that provides a default constructor
