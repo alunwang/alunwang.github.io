@@ -4,8 +4,7 @@
 #include <utility>   // std::pair
 #include <optional>  // std::optional
 #include <iostream>
-#define FMT_HEADER_ONLY
-#include <fmt/format.h> // fmt::v9::format
+#include <format>
 
 
 /*
@@ -54,7 +53,7 @@ void pairUsage(void)
     std::cout << "testing pairUsage()...\n";
     std::pair myPair {3.14, 5}; // std::pair<double, int> myPair {3.14, 5}
     
-    std::cout << fmt::v9::format("(first, second) = ({}, {})\n", myPair.first, myPair.second);
+    std::cout << std::format("(first, second) = ({}, {})\n", myPair.first, myPair.second);
 }
 
 /*
@@ -105,7 +104,7 @@ class CircleClass {
 
 void func(int i)
 {
-    std::cout << fmt::v9::format("i = {}\n", i);
+    std::cout << std::format("i = {}\n", i);
 }
 
 // Uniform initialization
@@ -233,13 +232,13 @@ void referenceUsage()
     }
     {
     int x {30}, y {50};
-    std::cout << fmt::v9::format("(x, y) = ({}, {})\n", x, y);
+    std::cout << std::format("(x, y) = ({}, {})\n", x, y);
     swap(x, y);
-    std::cout << fmt::v9::format("(x, y) = ({}, {})\n", x, y);
+    std::cout << std::format("(x, y) = ({}, {})\n", x, y);
     int* xPtr {&x};
     int* yPtr {&y};
     swap(*xPtr, *yPtr); // 当实参是指针时，可以传值给以应用为形参的函数
-    std::cout << fmt::v9::format("(x, y) = ({}, {})\n", x, y);
+    std::cout << std::format("(x, y) = ({}, {})\n", x, y);
     }
 }
 
@@ -250,17 +249,17 @@ void structuredBindings(void)
     std::cout << "testing structuredBindings()...\n";
     std::array arr {11, 22, 33};
     auto [a1, a2, a3] {arr};    // Shall use auto, cannot use int
-    std::cout << fmt::v9::format("[a1, a2, a3] = [{}, {}, {}]\n", a1, a2, a3);
+    std::cout << std::format("[a1, a2, a3] = [{}, {}, {}]\n", a1, a2, a3);
 
     struct Point {double dx, dy, dz;};
     Point px;
     px.dx = 1.0; px.dy = 2.0; px.dz = 3.0;
     auto& [x, y, z] {px};    // The number of variables shall be equal to the members in struct
-    std::cout << fmt::v9::format("[x, y, z] = [{}, {}, {}]\n", x, y, z);
+    std::cout << std::format("[x, y, z] = [{}, {}, {}]\n", x, y, z);
 
     std::pair myPair {"Alan", 25};
     const auto& [myName, myAge] {myPair};  // const and reference can be used with StructureBindings
-    std::cout << fmt::v9::format("[Name, Age] = [{}, {}]\n", myName, myAge);
+    std::cout << std::format("[Name, Age] = [{}, {}]\n", myName, myAge);
 }
 
 int main(int argc, char* argv[])

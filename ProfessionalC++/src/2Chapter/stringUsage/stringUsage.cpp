@@ -1,6 +1,5 @@
 #include <iostream>
-#define FMT_HEADER_ONLY
-#include <fmt/format.h>
+#include <format>
 
 using namespace std;
 
@@ -41,9 +40,9 @@ void stringConnect()
 {
     string a {"123"};
     string b {"456"};
-    cout << fmt::v9::format("a+b = {}\n", a+b);
+    cout << std::format("a+b = {}\n", a+b);
     a += a;
-    cout << fmt::v9::format("a = {}\n", a);
+    cout << std::format("a = {}\n", a);
 }
 
 void stringFindAndReplace()

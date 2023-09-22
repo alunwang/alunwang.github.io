@@ -9,8 +9,7 @@
 #include <mutex>
 #include <thread>
 #include <condition_variable>
-#define FMT_HEADER_ONLY
-#include <fmt/format.h>
+#include <format>
 
 namespace logging
 {
@@ -93,7 +92,7 @@ void Logger::log(const int line, const char* source, Level level, const char* me
     time_t current;
     time(&current);
     struct tm* timeinfo {localtime(&current)};
-    std::string entry = fmt::format("[{}]\t{} at line {} in file {} at {}", 
+    std::string entry = std::format("[{}]\t{} at line {} in file {} at {}", 
         levelString, message, line, source, asctime(timeinfo));
 
     // 锁住m_mtx，写入记录

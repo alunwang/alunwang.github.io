@@ -2,8 +2,7 @@
 #include <string_view>
 #include <chrono>
 #include <iostream>
-#define FMT_HEADER_ONLY
-#include <fmt/format.h>
+#include <format>
 
 
 std::string_view extractExtension(std::string_view fname) // string_view通常按值传递，因为它们的复制成本非常低。
@@ -14,12 +13,12 @@ std::string_view extractExtension(std::string_view fname) // string_view通常�
 void stringView()
 {
     std::string fname {R"(./stringView.cpp)"};
-    std::cout << fmt::v9::format("C++ string: {}\n", extractExtension(fname));
+    std::cout << std::format("C++ string: {}\n", extractExtension(fname));
 
     const char* cStr {R"(./stringView.cpp)"};
-    std::cout << fmt::v9::format("C string: {}\n", extractExtension(cStr));
+    std::cout << std::format("C string: {}\n", extractExtension(cStr));
 
-    std::cout << fmt::v9::format("String literal: {}\n", extractExtension(R"(./stringView.cpp)"));
+    std::cout << std::format("String literal: {}\n", extractExtension(R"(./stringView.cpp)"));
 }
 
 class Timer {
@@ -39,7 +38,7 @@ class Timer {
         { // 析构时再记录结束时间，计算并打印耗时
             m_stop = std::chrono::high_resolution_clock::now();
             std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(m_stop - m_start);
-            std::cout << fmt::v9::format("{} {}s\n", m_title, (ms.count()) * 0.001);
+            std::cout << std::format("{} {}s\n", m_title, (ms.count()) * 0.001);
         }
 };
 

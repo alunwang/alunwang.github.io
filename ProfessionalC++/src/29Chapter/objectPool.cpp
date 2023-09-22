@@ -6,8 +6,7 @@
 #include <iomanip>
 #include <chrono>
 #include <cassert>
-#define FMT_HEADER_ONLY
-#include <fmt/format.h>
+#include <format>
 #include "objectPool.h"
 
 using namespace std;
@@ -56,6 +55,6 @@ int main()
     }
     auto end1 { chrono::steady_clock::now() };
     auto diff1 { end1 - start1 };
-    cout << fmt::v9::format("{}ms\n", chrono::duration<double, milli>(diff1).count());
+    cout << std::format("{}ms\n", chrono::duration<double, milli>(diff1).count());
     return 0;
 }
